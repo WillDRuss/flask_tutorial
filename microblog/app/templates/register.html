@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Sign In</h1>
-	<form action="" method="post" novalidate>
+	<h1>Register</h1>
+	<form action="" method="post">
 		<!-- generate a hidden field to protect against CSRF attacks -->
 		{{ form.hidden_tag() }} 
 		<p>
 			{{ form.username.label }}<br>
 			{{ form.username(size=32) }}
 			{% for error in form.username.errors %}
+				<span style='color: red;'>[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.email.label }}<br>
+			{{ form.email(size=32) }}
+			{% for error in form.email.errors %}
 				<span style='color: red;'>[{{ error }}]</span>
 			{% endfor %}
 		</p>
@@ -20,15 +27,14 @@
 			{% endfor %}
 		</p>
 		<p>
-			{{form.remember_me() }} {{ form.remember_me.label }}
+			{{ form.password2.label }}<br>
+			{{ form.password2(size=32) }}
+			{% for error in form.password2.errors %}
+				<span style='color: red;'>[{{ error }}]</span>
+			{% endfor %}
 		</p>
 		<p>
 			{{ form.submit() }}
 		</p>
 	</form>
-	<p>New User? 
-		<a href="{{ url_for('register') }}">Click to Register</a>
-	</p>
 {% endblock %}
-
-<!-- From fields from the form object know how to render themsleves as html -->
