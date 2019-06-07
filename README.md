@@ -1,2 +1,4 @@
 # flask_tutorial
-basic flask app to learn the basics
+
+Following along with the Flask Mega Tutorial to build a micro blogging site 
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-viii-followers
